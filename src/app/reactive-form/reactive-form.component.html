@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <label>
+    UserName:
+  </label>
+  <input type="text" name="UserName" [formControl]="userCtrl" required minlength="4">
+  <div *ngIf="userCtrl.invalid && (userCtrl.dirty || userCtrl.touched)" class="alert alert-danger">
+    <div *ngIf="userCtrl.errors.required">
+      UserName is required
+    </div>
+    <div *ngIf="userCtrl.errors.minlength">
+        MIn length should be greater than 4
+    </div>
+  </div><br>
+  <label>
+    Password:
+  </label>
+  <input type="text" name="Password" [formControl]="passCtrl" required minlength="8" maxlength="15">
+  <div *ngIf="passCtrl.invalid && (passCtrl.dirty || passCtrl.touched)" class="alert alert-danger">
+      <div *ngIf="passCtrl.errors.required">
+        Password is required
+      </div>
+      <div *ngIf="passCtrl.errors.minlength">
+        MIn length should be greater than 8
+      </div>
+      <div *ngIf="passCtrl.errors.maxlength">
+        Max length shuold be less than 15
+      </div>
+    </div><br>
+  <button class="btn btn-success" type="submit" [disabled]="form.invalid">Submit</button>
+</form>
