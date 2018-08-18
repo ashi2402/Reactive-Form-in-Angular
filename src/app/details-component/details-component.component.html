@@ -1,0 +1,9 @@
+<!-- <div *ngFor=" let data to personData">
+  <p>Id: {{data.personId}}, Name: {{data.personName}}</p>
+</div>> -->
+<h3> List of all persons </h3>
+<ul *ngFor="let person of personData">
+  <li  *ngIf="person.personId == 'I'"> 
+    <span>Name: {{person.personName}}</span>  , ID: <span>{{person.personId}}</span>
+  </li>
+ </ul>
